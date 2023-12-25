@@ -1,0 +1,47 @@
+For example I am installing VirtualBox
+--------------------------------------------------------
+$ sudo apt install virtualbox		(But, download virtualbox file from internet)
+$ sudo dpkg -i <file-name>		(You should be in the folder where the file is present)
+
+(But, it might say there is dependency problem) For this--
+$ sudo apt -f install
+
+To remove virtualbox-->
+$ sudo apt remove virtualbox-<version>
+
+----------------------------------------------------
+If you are using 'ifconfig' command to know the ip address, it may not work. For this , first run 
+$ sudo apt install net-tools
+
+Another commands to know ip address--> 
+$ hostname -I
+$ ip addr show
+
+----------------------------------------------------------------------
+Side Note Start
+----------------------------------------------------------------------
+
+Error: 'Username is not in the sudoers file. 
+
+su root 
+nano /etc/sudoers	(It will open nano)
+
+Then add the user below admin user like below syntax.
+user_name ALL=(ALL) ALL
+
+Note: If you see ^o or ^x (It means you will have to user ctrl + o,  ctrl + x)
+--------------------------------------------------------------------------------------
+Side Note End
+--------------------------------------------------------------------------------------
+
+Installing Git
+
+
+
+
+
+
+
+
+
+
