@@ -1,0 +1,455 @@
+AGENDA 
+======================
+1) Fundamentals Of Linux
+2) Different Shells in Linux 
+3) Linux Installation Using Virtual Box 
+4) Linux Commands On Ubuntu
+5) Linux Commands For DevOps 
+6) Linux File System Explained 
+7) Package Management in Linux 
+8) Linux Admin - Configuring a DNS Server
+9) Shell Scripting 
+10) Shell Scripting Interview Q & A 
+11) Linux vs Windows 
+12) Linux vs Unix 
+13) Linux Interview Q & A
+
+
+-----------------------------------------------------------------
+1) Fundamentals of Linux 
+Linux is a kernel which is based on Unix. Operating Systems like Ubuntu and Centos are based on Linux and these are Distributions of Linux. 
+Various Linux Distributions
+	The most important distributions are of RED HAT Enterprise Linux(RHEL), Fedora Linux and Debian Linux. Ubuntu is based on Debian. 
+	Linux Features (Compare To Other OS)
+2)Linux Features
+	Simplified Updated for All installed S/W (Using Terminal)
+	Free Software Licensing 
+	Access To Source Code (We can contribute to Source Code of Linux based OS)
+	Multiple Distributes (We can switch to other distributions and these distributions have almost 98% common commands)
+	Better Malware Protection (We don't need antivirus in Linux based operating system)
+
+3) Hands On: Linux Commands 
+Working with Directories
+	<<<<=============================================================================================================>>>>
+	Suppose You want to open root directory
+		cd / -----> open /  (No need to use cd /)
+	Important Commands 	
+		pwd --> Display the current working directory of the terminal 
+		/ --> It indicated the Root directory (Computer) (In Root Directory, there is home directory and inside it there is devanshu directory) (Note: home directory is not Home directory)
+		/& --> It means we are in Root directory
+		~& --> It means we are in Home directory
+		If we are going using terminal in Home directory
+			cd /  (Go to root directory)
+			cd home/devanshu (Now, you are in Home directory)
+			You can do directly -- cd /home/devanshu
+		clear --> It clears the terminal
+		
+		ls --> It lists down all the folders and files present in that directory.
+		ls path--> By specifying the path after ls, the content in that path will be displayed. 
+		ls -l --> Using "l" flag, list all the contents along with its owner settings, permissions and time stamp (long format)
+		   Example--> --> (drwxr-xr-x 2 devanshu devanshu 4096 Dec 19 06:28 Desktop)  <Permission> 2 <username> <hostname> <Memory Size> <Date> <Folder Name> 
+		ls -a --> Using 'a' flag, list all the hidden contents in the specified directory. 
+		ls -author --> Lists the content in the specified directory along with this owner. 
+		ls -S --> Using 'S' flat, Sorts and lists all the content in the specified directory by size. 
+		ls *.html --> Using '*' flat, lists all the content in the directory of a particular format. 
+		ls -IS > file.txt --> Using '>' flag, copies the result of ls command into a text file. 
+			Example --> 
+				$ ls -laS > File1.txt --> It will copy the result (current directory because we did mention directory after ls -laS) of ls -laS into File1.txt (ls -laS will give the output for the current directory and File1.txt is created in current directory)
+				We could run ls -laS for a particular directory althouth your currect directory could be different. File1.txt will be created in current directory.
+					$ ls -laS /home/devanshu > File1.txt
+				We can view the content of a file using cat or vi command--
+					$ cat File2.txt {or}
+					$ vi File2.txt
+						(To exit, :q! or :wq)
+		(Note: We can also combine like --> ls -la, ls -laS)
+		
+		
+		Working with Directories : 'cd'
+		cd --> Changes the directory to Home directory
+		cd ~ --> Changes the directory to Home directory 
+		cd / --> changes the directory to root directory 
+		cd .. --> Changes the directory to its parent directory
+		cd 'xx yy' --> We specify the folder name in inverted commas because there is a space in the folder name
+		
+		 
+		
+		cd --> If you give only cd, it will navigate to Home directory
+		cd .. --> It navigates to the previous directory.
+		cd <DirectoryName>/<DirectoryName> --> You don't need to give full name of directory. You can use tab after writting few letters.
+		echo --> Command that writes its arguments to standard output. (Example -- echo Hi! This is Devanshu)
+			We can print value of a variable using echo-
+				x=100
+				echo $x
+<<<<=======================================================================================================================>>>>
+cat --> This command is used to display the content of text files and concatenate several files into one. 
+grep 
+sort 
+pipe
+
+Working With Files   ($ cat [Options] <file1> <file2>   (Example --> $ cat file1.txt file2.txt)
+-------------------------------------------------------	-------------------------------------------------
+	cat --> This command is used to display the content of text files and concatenate several files into one. 
+	cat -b --> This is used to add line numbers to non-blank lines. 
+	cat -n --> This is used to add line numbers to all lines .
+	cat -s --> This is used to squeeze blank lines into one line. 
+	cat -E --> Show $ at the end of line
+	$ cat > file1.txt --> The '>' flag can be used to create a new file and enter text contents from the terminal. (After entering text, to exit, we press ctrl+D)
+		Now, you can see the content present in file1.txt. --> cat file1.txt
+	$ cat >> file1.txt 								(> is called direction symbol and >> is double direction symbol)
+		the '>>' can be used to append text contents to an existing file from the terminal. 
+	$ cat file1.txt >> file2.txt 
+		the '>>' can be used to append text contents to the existing file file2.txt from the existing file file1.txt.  
+
+
+Working With "grep" command 
+--------------------------------------------------------------------------------------------------------
+	We use the 'grep' command to search for a particular string/word in a text file. This is similar to 'ctrl + F' in windows when we search a word or sentence in a file. 
+	
+	$ grep options file1.txt --> Returns results for matching string 'options'
+	$ grep -i options file1.txt --> Returns the results for case-insensitive strings 
+	$ grep -n options file1.txt --> Returns the matching strings  along with their line number
+	$ grep -v options file1.txt --> Returns the result of lines not matching the search string 
+	$ grep -c options file1.txt --> Returns the number of lines in which the results matched search string    
+	
+Working With "sort" command 
+--------------------------------------------------------------------------------------------------------
+	We use the sort command to sort the results of a search either alphabetically or numerically. Files, file contents and directories can be sorted. 
+	$ sort file1.txt --> sort the contents of file1.txt and returns them in alphabetical order. 
+	$ sort file1.txt file2.txt --> sort the contents of both file1.txt and file2.txt 
+	$ sort -r file1.txt --> 'r' flag returns the results in reverse order
+	$ sort -f file1.txt --> 'f' does case insensitive sorting 
+	$ sort -n file1.txt --> 'n' returns the results as per numerical order 	
+
+
+Working With pipe "|" command 
+--------------------------------------------------------------------------------------------------------
+	The '|' command a.k.a 'pipe' command is used to output the result of one command as input to another command. '|' are used to perform same two operations in the same command. 
+	$ grep dh file1.txt file2.txt | sort //Searches for String 'dh' from both files and sorts the results
+	$ grep dh file1.txt file2.txt | sort -r //Searches for string 'dh' from both the files and sorts the results in reverse order
+
+
+
+<<<<=======================================================================================================================>>>>
+cp 
+mv 
+mkdir
+rm 
+rmdir
+user permissions
+
+
+
+Working With Files & Directories : 'cp' command  
+--------------------------------------------------------------------------------------------------------
+	$ cp [options] source destination 			([options] is for flag)
+	
+	cp --> This command is used to copy files & directories 		(It will also overwrite)
+	cp -i --> Enters Interactive mode; CLI asks before overwritting files 
+	cp -n --> Do not overwrite the file 
+	cp -u --> Update the destination file only when source file is different from destination file 
+	cp -R --> Recursive copy; copy even hidden files
+	cp -v --> Prints informative messages (It will also overwrite file)
+	
+	Suppose You are in the currenct working directory Desktop, you want to copy file present in Documents.
+		$ cp /home/devanshu/Documents/file.txt .		(dot(.) here represents current working directory)
+	
+
+Working With Files & Directories : 'mv' command  	(mv command is used for cut and paste)
+--------------------------------------------------------------------------------------------------------
+	$ mv [options] source destination 			([options] is for flag)
+	
+	mv --> This command is used to copy files & directories 		(It will also overwrite)
+	mv -i --> Enters Interactive mode; CLI asks before overwritting files 
+	mv -n --> Do not overwrite the file 
+	mv -u --> Update the destination file only when source file is different from destination file 
+	mv -R --> Recursive copy; copy even hidden files
+	mv -v --> Prints informative messages (It will also overwrite file)
+	
+	We can move multiple files at the same time
+	mv file1.txt file2.txt LMS/			(It means LMS is in present directory hahahaha!!!!)
+	
+	What would you do if you need to copy multiple files at the same time 
+	$ cp *.txt /home/devanshu/Desktop	(Same for move command)
+	Another Demo (You are in Pictures folder, you need to copy multiple files from Documents to (current)Pictures folder)
+		$  cp /home/devanshu/Documents/*.txt .		(dot (.) represents current directory)
+	
+	
+	(Note: Shortcut for clearing the screen is --> ctrl + L) 
+	
+
+Working With Directories : 'mkdir' command
+--------------------------------------------------------------------------------------------------------
+	$ mkdir directory-path 
+	
+	mkdir --> This command is used to create new directory 
+	mkdir -p --> Create both a new parent directory and a sub-directory 
+	mkdir --parents --> This is also used for the same process 
+	mkdir {folder1,folder2,folder3} --> To make multiple folders
+	mkdir -p NewFolder/{f2,f3,f4} --> This is used to create multiple sud-directories inside the new parent directory 
+	
+	
+
+Working With Files and Directories : 'rm' and 'rmdir' command
+--------------------------------------------------------------------------------------------------------
+	$ rmdir foldername
+	$ rm filename/foldername
+	
+	rmdir --> This command is used to remove the specified directory (It should not contain subdirectories)
+		rmdir Folder1
+	Suppose Folder1 contains folder2 and folder2 contains contains folder3. To delete, folder3. 
+		rmdir Folder1/folder2/folder3
+	rmdir -p --> Removes both the parent and child directory
+		rmdir -p Folder1/folder2/folder3	(It will delete parent and sub-directories
+		rmdir -p Folder1	(It will not work and says 'directory not empty')
+	rmdir -pv --> Remove all the parent and sub directories along with the verbose
+	rm -r --> Removes even non-empty directories
+		Suppose Folder1 contains folder2 and folder2 contains folder3. 
+		rm -r Folder1	(It will delete Folder1 without any problem)
+	rm -rp --> Removes non empty directories including parent and subdirectories  
+	
+
+Working With User Permissions: 'r', 'w', & 'x'  
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	$ ls -l
+	  d          rwx                  rwx                 r-x                    Symbolic Links	  Owner Name		Group Name	    File Size 		Time Stamp			
+	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	 File/      User 		  Group  	      Other's 	             1			  devanshu		devanshu	    5223424		Aug 12 2016
+	 Dir        Permissions		  Permissions	      Permissions
+	 type  
+	
+							      (Here in 'r_x', w 
+							      is missing, 
+							      so Other permissions 
+							      are read and 
+							      execute, 
+							      - means that 
+							      thing is missing)
+	Example-->
+	-rw-rw-r--	
+		'-' --> It is a normal file
+		'rw-' --> User has read, write permissions. Not execute permission.
+		'rw-' --> Group Permissions are read and write. Not execute. 
+		'r--' --> Other's permission is read only. w and x are missing. 							      					
+	
+	
+	File Types 			  File Permissions		Denotions
+	----------------------------------------------------------------------------------------------------------
+	Normal File- '-'		  Read- 'r'			Users- 'u'
+	Directory- 'd'                    Write- 'w'			Groups- 'g'
+	Character Special File- 'c'	  Execute- 'x'			Others- 'o'
+	Binary Special File- 'b'					All- 'a'
+	
+	
+	We can modify permissions--
+	chmod: To change the access permissions of files  and directories 
+	chown: To change the owner of files and directories 
+	chgrp: To change the group ownership of files and directories 
+	
+	
+	Commands 						Explanation 
+	----------------------------------------------------------------------------------------------------------------------------------------------------
+	chmod g+wx filename					This gives write and execute permission to group members	(+ means you are adding the permissions)
+	
+	chmod u=rwx,o-wx filename				This gives the read, write and execute permission to owners and (= means you are overriding the permissions whatever they had previously)																			
+								removes the write and execute ownership from other members
+	
+	chown username filename					changes the owner of specified file 
+	
+	chown username:groupname filename			changes both the owner and group ownership of the specified file 
+	
+	chgrp groupname filename				Changes the group ownership of the specified file
+	
+	
+
+
+
+<<<<<<<<<<<<<<<<<<===============================================================================================================================================>>>>>>>>>>>>>>>>>>>>>>>>
+Linux Repository 
+tar files 
+env var 
+regex
+<<<<<<<<<<<<<<<<<<===============================================================================================================================================>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+Working With Linux Repositories 
+-------------------------------------------------------------------------------------------------------------------------
+	Stable versions of most softwares will already be available in Linux repositories. Command to install them:
+	$ sudo yum install package-name		//For RHEL based systems	(Repository for RHEL repository is yum)
+	$ sudo apt-get install package-name 	//For Debian based systems	(Repository for Debian repository is apt)
+	$ sudo dnf install package-name		//For Fedora based systems	(Repository for Fedora repository is dnf)
+	
+	Java Installation
+	--------------------------------
+	$ sudo apt update
+	$ sudo apt install openjdk-17-jdk	(If will promt to type y or n, if you are sure to install just write -y in this command --> $ sudo apt -y install openjdk-17-jdk) 
+	$ java -version				(Confirm the installation)
+	$ sudo update-alternatives --config java	//For selecting from various java versions
+	$ cd 
+	
+	$ sudo gedit .bashrc	(run in home directory)(Using this command, You will enter into bashrc file, and there you can set environment variables (bashrc is present in Home 	  directory))
+	
+	# Set the environment variables here 
+	
+	$ source .bashrc	(It is just to sync your terminal with set environment variables. You can avoid if your opening new terminal)
+	
+
+Working With tar files 
+-------------------------------------------------------------------------------------------------------------------------
+	When you download a package from the internet, the downloaded files comes in compressed form. Commands to decompress and compress files in linux:
+	
+	gzip: To compress files with .gz format
+	gunzip: To decompress .gz files
+	tar: To compress and decompress files with .tar format
+	
+	$ tar -cvf tar-file-name file-name	//Compressing files to Tar format
+		$ tar -cvf lms.tar LMS		(lms.tar--> You want to give the name of compressed file, LMS which folder you want to compress)
+	$ tar -xvf tar-file-name	//Extracting/Decompressing files in Tar format
+	
+	(tar is preferred in linux)
+	When you download any file from the internet for your linux. It is downloaded in the form of tar file. 
+	
+
+Working With Environment Variables 
+-------------------------------------------------------------------------------------------------------------------------
+	Environment variables control the behaviour of the software packages installed in Linux.
+	The path where the packages have been installed will be specified in environment variables. 
+	
+	$ printenv //print the list of all environment variables 
+	$ echo $HOME //This will print the path of Home directory of the user. 
+	$ echo $PATH //It is a colon-separated list of directories in which the shell looks for commands
+	$ echo $HOSTNAME //This will print the hostname
+	$ echo $USERNAME //This will print the username
+	$ echo $LANG //This will print the language being used. 
+	$ echo $BASH_VERSION //This will print the version of this instance of bash
+	
+
+Working With Regular Expressions
+-------------------------------------------------------------------------------------------------------------------------
+	Regular Expressions (RegEx) are used to search through data. 
+	It can be piped along with 'grep' command to find patterns of text in the file. 
+	
+	Symbol 				Explanation 
+	---------------------------------------------------------
+	.				Replaces any character 
+	^				Matches the start of the String					Ex--( $ cat Automobiles.txt | grep ^a )
+	$				Matches the end of the String					Ex--( $ cat Automobiles.txt | grep a$ )
+	*				Matched the preceding character zero or more times			Ex--( 
+	?				Matches the preceding character one or more times
+	()				Groups regular expressions
+	\				Represents special characters				
+	
+	
+	$ cat File1.txt | grep ^a
+	$ grep 'a[0-9]x' File1.txt		(At the starting should be a, at the end should be x, middle of 'a' and 'x' should be any from 0 to 9)
+	$ cat Automobiles.txt | grep a$		(or 'a$')	(cat will give all the strings to grep and grep will show all strings that end with a)
+	$ cat Automobiles.txt | grep '[xt$]'	(cat will give all the strings to grep and grep will show all the strings that should contain 'x', 't' or '$')
+	$ ls | grep '[xt$]'			(It will give all the files and folders to grep and grep will display all the files that contain 'x', 't' or '$')		
+	$ ls | grep 'le[0-9].txt'
+	
+			
+	
+	$ grep a* Automobiles.txt		(Matches a zero or more time)
+	$ grep [a?] Automobiles.txt		(Matches a one or more time)
+	$ grep ['d.d'] File1.txt
+	
+	$ echo {a..z}
+	$ echo {4..45}
+	$ echo 1{a..z}0
+	
+	Example $ echo a{2..4}p --> a2p a3p a4p
+	
+<<<<<<<<<============================================================================================================================================>>>>>>>>>>>>>>>>>>>>>>>>>
+Processes 
+Adding Users 
+ssh 
+
+
+  Processes
+-----------------------------------------------------------------------------
+	--> An instance of a program is called a process. 
+	--> Any command given to linux kernel starts a new process. 
+	--> There can be multiple processes (instances) of a same program. 
+	To view Processes --> $ top	
+	
+	
+	PID		USER		PR		NI		VRT		RES		SHR		S		%CPU		%MEM		TIME+		COMMAND
+	----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+	Process		User		Priority	Niceness	Virtual		Physical	Shared		Status		CPU 		Physical	Total		Command  		
+	ID		Name				Value		Memory		Memory		Memory				Time		Memory 		CPU
+																			Used		Time
+	
+	
+	Priority --> (-20 to +20)
+	NI --> (-20 to +20)
+	Note: Higher the priority value, lower is the NI value.
+	
+	Foreground Processes --> The processes which are running in the shell and user can interact with them. If a particular process is running in the foreground, in that case, I will not be able to 
+	interact with other process.
+	Background Process --> Use will not be able to interact with the procees and the user will be able to run other commands.
+	$ google-chrome	(This process will run in the foreground and I can not interact with other process (I can not write any other command))
+	$ google-chrome	& (This process will run in the background and I will be able to interact with other processes (I can write other commands))
+	$ jobs	(It will show the jobs , + means recently added and - means added previously) 
+	To bring the process in foreground--
+	$ fg %num_of_the_job	or  $ fg google-chrome
+		Now, the process will run in the fore-ground, I want to run it in background, two steps to follow--
+			 --> ctrl + z 		(It will stop the process)
+			 --> bg %num_of_the_job
+			 
+	We have seen top command. Another way To see all the processes that are running--
+		$ ps ux
+	To pid 
+		$ pidof google-chrome	(Not working in my case)
+	To kill the process 
+		$ kill pid	(You can pass multiple pids--> kill pid1 pid2 pid3)
+			 
+
+Adding Users
+-----------------------------------------------------------------------------
+	$ sudo useradd user-name //Adding a new user
+	$ sudo passwd user-name //Setting a password for that user
+	$ sudo userdel user-name //Deleting that user
+	
+	
+	$ sudo groupadd group-name //Adding a new group
+	$ sudo groupdel group-name //Deleting that group
+	$ sudo usermod -g group-name user-name //Adding a user to a primary group	
+	
+
+SSH (Secure Shell) For Remote Machine Access
+--------------------------------------------------------------------------------------------------------------------
+	$ service iptables stop //Drop the IP table 
+	$ sudo chkconfig iptables off //Permanently disables the IP table
+	$ sudo gedit /etc/hosts //Add the below IP addresses in both the master and slave's hosts file
+	
+	master 192.168.56.102
+	slave 192.168.56.103
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	su --> Used to switch to root user (so that super user permissions can be used to execute commands)
+	su username --> Used to switch to a different user
+	sudo <command>--> Executes only that command with root/super user privileges
+	
+	whoami --> It tells with which username you are logged in. 
+	sudo passwd root --> It is used to set password for root user. 
+	exit --> To move outside of root user. 
+
+ 
+		
+		
+		
+	
+ 
+	

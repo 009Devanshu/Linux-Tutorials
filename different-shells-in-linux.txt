@@ -1,0 +1,26 @@
+What is Kernel?
+--------------------------------
+The computer programs that allocate the system resources and coordinate all the details of the computer's internals is called the operating syste or the kernel. Users communicate 
+with the OS through a program called the shell.
+
+Shell --> The shell is a Command Line Interpreter. It translated commands entered by the user and converts them into a language that is understood by the kernel.
+
+
+	Takes Input-----------------> Translates--------------------> Language Understood
+	From User		      Commands			      By the Kernel
+	
+	
+What is a shell script?
+----------------------------
+The basic concept of a shell is a list of commands, which are listed in the order of execution. A good shell script will have comments, preceded by #sign, describing the steps.
+it allows users to store commands in a file and execute them together. This way any repetitive task can be easily automated. These files are usually called batch files in Windows and Shell Scripts in Linux/macOS systems.
+
+Some Shells for Linux System:
+-------------------------------------
+BASH
+CSH (C SHELL)
+KSH (Korn Shell)
+
+Each shell script file is saved with .sh extension.
+
+

@@ -34,7 +34,7 @@ Note: If you see ^o or ^x (It means you will have to user ctrl + o,  ctrl + x)
 Side Note End
 --------------------------------------------------------------------------------------
 
-Installing Git
+
 
 
 
